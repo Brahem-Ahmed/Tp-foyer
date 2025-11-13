@@ -1,6 +1,7 @@
 package tn.esprit.tp_foyer_ahmed_brahem.services.interfaces;
 
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Foyer;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.Universite;
 
 import java.util.List;
 

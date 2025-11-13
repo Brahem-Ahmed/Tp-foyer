@@ -14,6 +14,7 @@ import java.util.List;
 @ToString
 public class Chambre {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  long idChambre;
     private  long numeroChambre;
     @Enumerated

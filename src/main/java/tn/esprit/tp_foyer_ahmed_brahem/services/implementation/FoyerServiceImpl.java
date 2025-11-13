@@ -3,6 +3,7 @@ package tn.esprit.tp_foyer_ahmed_brahem.services.implementation;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Foyer;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.Universite;
 import tn.esprit.tp_foyer_ahmed_brahem.repositories.FoyerRepository;
 import tn.esprit.tp_foyer_ahmed_brahem.services.interfaces.IFoyerService;
 
@@ -36,4 +37,6 @@ public class FoyerServiceImpl implements IFoyerService {
     public void removeFoyer(long idFoyer) {
         foyerRepository.deleteById(idFoyer);
     }
+
+
 }
