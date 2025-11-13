@@ -1,10 +1,7 @@
 package tn.esprit.tp_foyer_ahmed_brahem.entites;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -17,6 +14,7 @@ import java.util.List;
 @ToString
 public class Bloc {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idBloc;
     private String nomBloc;
     private long capaciteBloc;

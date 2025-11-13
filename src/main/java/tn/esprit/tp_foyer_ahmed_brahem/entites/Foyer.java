@@ -1,9 +1,6 @@
 package tn.esprit.tp_foyer_ahmed_brahem.entites;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -16,6 +13,7 @@ import java.util.List;
 @ToString
 public class Foyer {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idFoyer;
     private String nomFoyer;
     private long capaciteFoyer;

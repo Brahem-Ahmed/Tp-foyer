@@ -1,9 +1,6 @@
 package tn.esprit.tp_foyer_ahmed_brahem.entites;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -18,6 +15,7 @@ import java.util.List;
 @ToString
 public class Reservation {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String idReservation;
     private Date anneUniversitaire;
     private boolean estValide;
