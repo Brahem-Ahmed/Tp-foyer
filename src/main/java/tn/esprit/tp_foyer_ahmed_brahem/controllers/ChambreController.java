@@ -40,4 +40,8 @@ public class ChambreController {
     public void removeChambre(@PathVariable long idChambre) {
         chambreService.removeChambre(idChambre);
     }
+    @GetMapping("/chambres/afficheChambreParCapaciteBlocEtCapaciteFoyer/{cap_bloc}/{cap_foy}")
+    public List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(@PathVariable long cap_bloc,@PathVariable long cap_foy) {
+        return chambreService.afficheChambreParCapaciteBlocEtCapaciteFoyer(cap_bloc, cap_foy);
+    }
 }

@@ -52,4 +52,9 @@ public class UniversiteImpl implements IUniversiteService {
         else
             return null;
     }
+
+    @Override
+    public Universite afficherUniversiteParCinEtudiant(long cin) {
+        return universiteRepository.findByFoyerBlocsChambresReservationsEtudiantsCin(cin);
+    }
 }

@@ -37,4 +37,9 @@ public class IBlocServiceImpl implements IBlocService {
     public void removeBloc(long idBloc) {
         blocRepository.deleteById(idBloc);
     }
+
+    @Override
+    public List<Bloc> afficherBlocParNomFoyerEtNomUniversite(String nomFoyer, String Nom_Universite) {
+        return blocRepository.findByFoyerNomFoyerAndFoyerUniversiteNomUniversite(nomFoyer,Nom_Universite);
+    }
 }

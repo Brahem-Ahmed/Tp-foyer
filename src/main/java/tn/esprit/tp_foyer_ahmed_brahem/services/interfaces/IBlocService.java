@@ -11,4 +11,6 @@ public interface IBlocService {
     Bloc updateBloc (Bloc f);
     Bloc retrieveBloc (long idBloc);
     void removeBloc (long idBloc);
+    List<Bloc> afficherBlocParNomFoyerEtNomUniversite(String nomFoyer, String Nom_Universite );
+
 }

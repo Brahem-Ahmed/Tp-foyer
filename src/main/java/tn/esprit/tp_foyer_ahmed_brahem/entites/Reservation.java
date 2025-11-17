@@ -1,5 +1,6 @@
 package tn.esprit.tp_foyer_ahmed_brahem.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,12 +16,11 @@ import java.util.List;
 @ToString
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String idReservation;
     private Date anneUniversitaire;
     private boolean estValide;
 
-    
+    @JsonIgnore
     @ManyToMany()
     private List<Etudiant> etudiants;
 }

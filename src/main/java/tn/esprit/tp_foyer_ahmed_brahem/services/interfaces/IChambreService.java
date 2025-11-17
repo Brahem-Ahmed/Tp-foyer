@@ -10,5 +10,6 @@ public interface IChambreService {
     Chambre updateChambre (Chambre f);
     Chambre retrieveChambre (long idChambre);
     void removeChambre (long idChambre);
+    List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(long cap_bloc, long cap_foy);
 
 }
