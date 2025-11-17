@@ -41,6 +41,8 @@ public class BlocController {
         blocService.removeBloc(idBloc);
     }
 
-
-
+    @GetMapping("/blocs/afficheBlocParNomFoyerEtNomUniversite/{nomFoyer}/{Nom_Universite}")
+    public List<Bloc> afficherBlocParNomFoyerEtNomUniversite(@PathVariable String nomFoyer, @PathVariable String Nom_Universite) {
+        return blocService.afficherBlocParNomFoyerEtNomUniversite(nomFoyer, Nom_Universite);
+    }
 }

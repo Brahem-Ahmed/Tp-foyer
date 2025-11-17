@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Foyer;
 @Repository
 public interface FoyerRepository extends JpaRepository<Foyer, Long> {
+
 }

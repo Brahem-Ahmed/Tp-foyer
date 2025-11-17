@@ -35,4 +35,9 @@ public class ChambreImpl implements IChambreService {
     public void removeChambre(long idChambre) {
             chambreRepository.deleteById(idChambre);
     }
+
+    @Override
+    public List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(long cap_bloc, long cap_foy) {
+        return chambreRepository.findByBlocCapaciteBlocAndBlocFoyerCapaciteFoyer(cap_bloc,cap_foy);
+    }
 }
