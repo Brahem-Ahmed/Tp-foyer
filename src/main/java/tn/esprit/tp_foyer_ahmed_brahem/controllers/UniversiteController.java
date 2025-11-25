@@ -49,4 +49,8 @@ public class UniversiteController {
     public Universite afficherUniversiteParCinEtudiant(@PathVariable long cin) {
         return universiteService.afficherUniversiteParCinEtudiant(cin);
     }
+    @PutMapping("/universites/desaffecterFoyer/{idUniversite}")
+    public Universite desaffecterFoyerAUniversite(@PathVariable long idUniversite) {
+        return universiteService.desaffecterFoyerAUniversite(idUniversite);
+    }
 }

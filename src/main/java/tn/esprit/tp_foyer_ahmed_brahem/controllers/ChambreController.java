@@ -44,4 +44,12 @@ public class ChambreController {
     public List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(@PathVariable long cap_bloc,@PathVariable long cap_foy) {
         return chambreService.afficheChambreParCapaciteBlocEtCapaciteFoyer(cap_bloc, cap_foy);
     }
+    @PutMapping("/chambres/affecterChambresABloc/{numChambre}/{idBloc}")
+    public Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) {
+        return chambreService.affecterChambresABloc(numChambre, idBloc);
+    }
+    @GetMapping("/chambres/afficheChambreParListdesNum/{numChambre}")
+    public List<Chambre> afficherChambreParListdesNum(@RequestBody List<Long> numChambre) {
+        return chambreService.afficherChambreParListdesNum(numChambre);
+    }
 }

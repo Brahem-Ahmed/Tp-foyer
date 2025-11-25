@@ -2,7 +2,9 @@ package tn.esprit.tp_foyer_ahmed_brahem.services.implementation;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Chambre;
+import tn.esprit.tp_foyer_ahmed_brahem.repositories.BlocRepository;
 import tn.esprit.tp_foyer_ahmed_brahem.repositories.ChambreRepository;
 import tn.esprit.tp_foyer_ahmed_brahem.services.interfaces.IChambreService;
 
@@ -11,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 public class ChambreImpl implements IChambreService {
     ChambreRepository chambreRepository;
+    BlocRepository blocRepository;
+
     @Override
     public List<Chambre> retrieveAllChambres() {
         return chambreRepository.findAll();
@@ -33,11 +37,36 @@ public class ChambreImpl implements IChambreService {
 
     @Override
     public void removeChambre(long idChambre) {
-            chambreRepository.deleteById(idChambre);
+        chambreRepository.deleteById(idChambre);
     }
 
     @Override
     public List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(long cap_bloc, long cap_foy) {
-        return chambreRepository.findByBlocCapaciteBlocAndBlocFoyerCapaciteFoyer(cap_bloc,cap_foy);
+        return chambreRepository.findByBlocCapaciteBlocAndBlocFoyerCapaciteFoyer(cap_bloc, cap_foy);
     }
+
+    @Override
+    public Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) {
+        Bloc bloc = blocRepository.findById(idBloc).orElse(null);
+        List<Chambre> chambres = chambreRepository.findAllByIdChambreIn(numChambre);
+        for (Chambre chambre : chambres) {
+            chambre.setBloc(bloc);
+            chambreRepository.save(chambre);
+            return bloc;
+        }
+        return null;
+    }
+
+    @Override
+    public List<Chambre> afficherChambreParListdesNum(List<Long> numChambre) {
+        return chambreRepository.findAllByIdChambreIn(numChambre);
+    }
+
+
+
+
 }
+
+
+
+
