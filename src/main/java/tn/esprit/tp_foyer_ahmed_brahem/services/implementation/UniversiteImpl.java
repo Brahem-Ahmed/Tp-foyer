@@ -57,4 +57,14 @@ public class UniversiteImpl implements IUniversiteService {
     public Universite afficherUniversiteParCinEtudiant(long cin) {
         return universiteRepository.findByFoyerBlocsChambresReservationsEtudiantsCin(cin);
     }
+
+    @Override
+    public Universite desaffecterFoyerAUniversite(long idUniversite) {
+        Universite u = universiteRepository.findById(idUniversite).orElse(null);
+        if (u != null) {
+            u.setFoyer(null);
+            return universiteRepository.save(u);
+        }
+        return null;
+    }
 }

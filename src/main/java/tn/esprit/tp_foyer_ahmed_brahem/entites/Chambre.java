@@ -20,7 +20,6 @@ public class Chambre {
     private  long numeroChambre;
     @Enumerated(EnumType.STRING)
     private  TypeChambre typeChambre;
-    @JsonIgnore
     @ManyToOne
     private Bloc bloc;
     @JsonIgnore
