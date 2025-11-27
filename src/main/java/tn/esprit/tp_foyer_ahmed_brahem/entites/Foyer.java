@@ -23,7 +23,7 @@ public class Foyer {
     @JsonIgnore
     @OneToOne(mappedBy = "foyer")
     private Universite universite;
-    @JsonIgnore
-    @OneToMany(mappedBy = "foyer")
+
+    @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL)
     private List<Bloc> blocs;
 }
