@@ -12,4 +12,5 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long> {
     List<Chambre> findByBlocCapaciteBlocAndBlocFoyerCapaciteFoyer(long bloc_capaciteBloc, long bloc_foyer_capaciteFoyer);
     List<Chambre> findByNumeroChambreIn(List<Long> idChambre);
     List<Chambre> findByBlocIdBloc(long idBloc);
+    List<Chambre> findByBlocFoyerUniversiteNomUniversite(String nomUniversite);
 }
