@@ -2,9 +2,12 @@ package tn.esprit.tp_foyer_ahmed_brahem.services.implementation;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Foyer;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Universite;
+import tn.esprit.tp_foyer_ahmed_brahem.repositories.BlocRepository;
 import tn.esprit.tp_foyer_ahmed_brahem.repositories.FoyerRepository;
+import tn.esprit.tp_foyer_ahmed_brahem.repositories.UniversiteRepository;
 import tn.esprit.tp_foyer_ahmed_brahem.services.interfaces.IFoyerService;
 
 import java.util.List;
@@ -13,6 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 public class FoyerServiceImpl implements IFoyerService {
     FoyerRepository foyerRepository;
+    BlocRepository blocRepository;
+    UniversiteRepository universiteRepository;
     @Override
     public List<Foyer> retrieveAllFoyers() {
         return foyerRepository.findAll();
@@ -36,6 +41,20 @@ public class FoyerServiceImpl implements IFoyerService {
     @Override
     public void removeFoyer(long idFoyer) {
         foyerRepository.deleteById(idFoyer);
+    }
+
+    @Override
+    public Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, long idUniversite) {
+        foyerRepository.save(foyer);
+        List<Bloc> listeBlocs= foyer.getBlocs();
+        for(Bloc b : listeBlocs) {
+            b.setFoyer(foyer);
+            blocRepository.save(b);
+        }
+        Universite u = universiteRepository.findById(idUniversite).orElse(null);
+        u.setFoyer(foyer);
+        universiteRepository.save(u);
+        return foyer;
     }
 
 

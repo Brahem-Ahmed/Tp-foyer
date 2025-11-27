@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ChambreRepository extends JpaRepository<Chambre, Long> {
     List<Chambre> findByBlocCapaciteBlocAndBlocFoyerCapaciteFoyer(long bloc_capaciteBloc, long bloc_foyer_capaciteFoyer);
-    List<Chambre> findAllByIdChambreIn(List<Long> idChambre);
+    List<Chambre> findByNumeroChambreIn(List<Long> idChambre);
     List<Chambre> findByBlocIdBloc(long idBloc);
 }
