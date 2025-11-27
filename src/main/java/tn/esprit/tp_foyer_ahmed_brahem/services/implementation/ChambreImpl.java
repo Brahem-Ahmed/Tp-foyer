@@ -48,19 +48,15 @@ public class ChambreImpl implements IChambreService {
     @Override
     public Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) {
         Bloc bloc = blocRepository.findById(idBloc).orElse(null);
-        List<Chambre> chambres = chambreRepository.findAllByIdChambreIn(numChambre);
+        List<Chambre> chambres = chambreRepository.findByNumeroChambreIn(numChambre);
         for (Chambre chambre : chambres) {
             chambre.setBloc(bloc);
             chambreRepository.save(chambre);
-            return bloc;
         }
-        return null;
+        return bloc;
     }
 
-    @Override
-    public List<Chambre> afficherChambreParListdesNum(List<Long> numChambre) {
-        return chambreRepository.findAllByIdChambreIn(numChambre);
-    }
+
 
 
 

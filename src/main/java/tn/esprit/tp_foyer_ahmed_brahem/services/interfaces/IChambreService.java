@@ -13,5 +13,4 @@ public interface IChambreService {
     void removeChambre (long idChambre);
     List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(long cap_bloc, long cap_foy);
     Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) ;
-    List<Chambre> afficherChambreParListdesNum(List<Long> numChambre);
 }
