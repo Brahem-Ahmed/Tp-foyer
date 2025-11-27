@@ -48,5 +48,8 @@ public class ChambreController {
     public Bloc affecterChambresABloc(@RequestBody List<Long> numChambre, @PathVariable long idBloc) {
         return chambreService.affecterChambresABloc(numChambre, idBloc);
     }
-
+    @GetMapping("/chambres/getChambresParNomUniversite/{nomUniversite}")
+    public List<Chambre> getChambresParNomUniversite(@PathVariable String nomUniversite) {
+        return chambreService.getChambresParNomUniversite(nomUniversite);
+    }
 }

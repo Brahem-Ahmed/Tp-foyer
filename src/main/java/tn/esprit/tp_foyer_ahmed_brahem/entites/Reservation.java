@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-
+@Builder
 @Entity
 @Getter
 @Setter
@@ -17,7 +18,7 @@ import java.util.List;
 public class Reservation {
     @Id
     private String idReservation;
-    private Date anneUniversitaire;
+    private LocalDate anneUniversitaire;
     private boolean estValide;
 
     @JsonIgnore

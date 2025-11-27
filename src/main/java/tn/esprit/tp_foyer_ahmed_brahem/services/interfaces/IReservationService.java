@@ -10,4 +10,5 @@ public interface IReservationService {
     Reservation updateReservation (Reservation f);
     Reservation retrieveReservation (long idReservation);
     void removeReservation (long idReservation);
+    Reservation ajouterReservation (long idChambre, long cinEtudiant) ;
 }

@@ -29,6 +29,13 @@ public class ReservationController {
     public Reservation updateReservation(@RequestBody Reservation f) {
         return reservationService.updateReservation(f);
     }
+
+
+    @PostMapping("/reservations/ajouterReservation/{idChambre}/{cinEtudiant}")
+    public Reservation ajouterReservation(@PathVariable long idChambre,@PathVariable long cinEtudiant) {
+        return reservationService.ajouterReservation(idChambre, cinEtudiant);
+    }
+
     @Operation(description = "Retourner Reservation par ID")
     @GetMapping("/reservations/{idReservation}")
     public Reservation retrieveReservation(@PathVariable  long idReservation) {
