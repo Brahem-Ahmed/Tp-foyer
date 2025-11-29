@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Chambre;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.TypeChambre;
 import tn.esprit.tp_foyer_ahmed_brahem.repositories.BlocRepository;
 import tn.esprit.tp_foyer_ahmed_brahem.repositories.ChambreRepository;
 import tn.esprit.tp_foyer_ahmed_brahem.services.interfaces.IChambreService;
@@ -60,6 +61,22 @@ public class ChambreImpl implements IChambreService {
     public List<Chambre> getChambresParNomUniversite(String nomUniversite) {
         return chambreRepository.findByBlocFoyerUniversiteNomUniversite(nomUniversite);
 
+    }
+
+    @Override
+    public List<Chambre> getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
+
+        return chambreRepository.findByTypeChambreAndBlocIdBloc(typeC,idBloc);
+    }
+
+    @Override
+    public List<Chambre> getChambresParBlocEtTypeJPQL(long idBloc, TypeChambre typeC) {
+        return chambreRepository.retournerLesChambresParTypeEtBloc(typeC,idBloc);
+    }
+
+    @Override
+    public List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre type) {
+        return chambreRepository.retournerLesChambresNonReserveesParNomUniversiteEtTypeChambre(nomUniversite,type);
     }
 
 

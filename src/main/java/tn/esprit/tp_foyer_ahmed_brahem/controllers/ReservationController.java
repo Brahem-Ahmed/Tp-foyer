@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Reservation;
 import tn.esprit.tp_foyer_ahmed_brahem.services.interfaces.IReservationService;
 
+import java.time.LocalDate;
 import java.util.List;
 @Tag(name= "Espaces des Reservations")
 @RestController
@@ -45,5 +46,9 @@ public class ReservationController {
     @DeleteMapping("/reservations/delete/{idReservation}")
     public void removeReservation(@PathVariable long idReservation) {
         reservationService.removeReservation(idReservation);
+    }
+    @GetMapping("/reservations/getReservationParAnneeUniversitaireEtNomUniversite/{anneeUniversite}/{nomUniversite}")
+    public List<Reservation> getReservationParAnneeUniversitaireEtNomUniversite(@PathVariable LocalDate anneeUniversite, @PathVariable String nomUniversite) {
+        return reservationService.getReservationParAnneeUniversitaireEtNomUniversite(anneeUniversite, nomUniversite);
     }
 }

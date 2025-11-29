@@ -2,6 +2,7 @@ package tn.esprit.tp_foyer_ahmed_brahem.services.interfaces;
 
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Chambre;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.TypeChambre;
 
 import java.util.List;
 
@@ -14,4 +15,8 @@ public interface IChambreService {
     List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(long cap_bloc, long cap_foy);
     Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) ;
     List<Chambre> getChambresParNomUniversite( String nomUniversite) ;
+    List<Chambre> getChambresParBlocEtType (long idBloc, TypeChambre typeC) ;
+    List<Chambre> getChambresParBlocEtTypeJPQL (long idBloc, TypeChambre typeC) ;
+    List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite,TypeChambre type);
+
 }
