@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Chambre;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.TypeChambre;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long> {
     List<Chambre> findByNumeroChambreIn(List<Long> idChambre);
     List<Chambre> findByBlocIdBloc(long idBloc);
     List<Chambre> findByBlocFoyerUniversiteNomUniversite(String nomUniversite);
+    List<Chambre> findByTypeChambreAndBlocIdBloc(TypeChambre typeChambre, long idBloc);
 }

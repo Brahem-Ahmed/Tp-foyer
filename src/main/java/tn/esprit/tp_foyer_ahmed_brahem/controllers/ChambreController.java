@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Chambre;
+import tn.esprit.tp_foyer_ahmed_brahem.entites.TypeChambre;
 import tn.esprit.tp_foyer_ahmed_brahem.services.interfaces.IChambreService;
 
 import java.util.List;
@@ -51,5 +52,9 @@ public class ChambreController {
     @GetMapping("/chambres/getChambresParNomUniversite/{nomUniversite}")
     public List<Chambre> getChambresParNomUniversite(@PathVariable String nomUniversite) {
         return chambreService.getChambresParNomUniversite(nomUniversite);
+    }
+    @GetMapping("/chambres/getChambresParBlocEtType/{idBloc}/{typeC}")
+    public List<Chambre> getChambresParBlocEtType(@PathVariable long idBloc,@PathVariable TypeChambre typeC) {
+        return chambreService.getChambresParBlocEtType(idBloc, typeC);
     }
 }
