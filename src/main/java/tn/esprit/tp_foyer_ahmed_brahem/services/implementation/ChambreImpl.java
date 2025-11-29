@@ -69,6 +69,16 @@ public class ChambreImpl implements IChambreService {
         return chambreRepository.findByTypeChambreAndBlocIdBloc(typeC,idBloc);
     }
 
+    @Override
+    public List<Chambre> getChambresParBlocEtTypeJPQL(long idBloc, TypeChambre typeC) {
+        return chambreRepository.retournerLesChambresParTypeEtBloc(typeC,idBloc);
+    }
+
+    @Override
+    public List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre type) {
+        return chambreRepository.retournerLesChambresNonReserveesParNomUniversiteEtTypeChambre(nomUniversite,type);
+    }
+
 
 }
 

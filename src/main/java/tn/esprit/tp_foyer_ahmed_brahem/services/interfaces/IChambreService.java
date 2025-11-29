@@ -15,6 +15,8 @@ public interface IChambreService {
     List<Chambre> afficheChambreParCapaciteBlocEtCapaciteFoyer(long cap_bloc, long cap_foy);
     Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) ;
     List<Chambre> getChambresParNomUniversite( String nomUniversite) ;
-    public List<Chambre> getChambresParBlocEtType (long idBloc, TypeChambre typeC) ;
+    List<Chambre> getChambresParBlocEtType (long idBloc, TypeChambre typeC) ;
+    List<Chambre> getChambresParBlocEtTypeJPQL (long idBloc, TypeChambre typeC) ;
+    List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite,TypeChambre type);
 
 }

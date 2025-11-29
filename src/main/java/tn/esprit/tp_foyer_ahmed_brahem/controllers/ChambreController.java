@@ -57,4 +57,12 @@ public class ChambreController {
     public List<Chambre> getChambresParBlocEtType(@PathVariable long idBloc,@PathVariable TypeChambre typeC) {
         return chambreService.getChambresParBlocEtType(idBloc, typeC);
     }
+    @GetMapping("/chambres/retrouverChambresParBlocEtTypeJPQL/{idBloc}/{typeC}")
+    public List<Chambre> getChambresParBlocEtTypeJPQL(@PathVariable long idBloc,@PathVariable TypeChambre typeC) {
+        return chambreService.getChambresParBlocEtTypeJPQL(idBloc, typeC);
+    }
+    @GetMapping("/chambres/getChambresNonReserveParNomUniversiteEtTypeChambre/{nomUniversite}/{type}")
+    public List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(@PathVariable String nomUniversite, @PathVariable TypeChambre type) {
+        return chambreService.getChambresNonReserveParNomUniversiteEtTypeChambre(nomUniversite, type);
+    }
 }

@@ -67,5 +67,10 @@ public class ReservationServiceImpl implements IReservationService {
         return reservationRepository.save(r);
     }
 
+    @Override
+    public List<Reservation> getReservationParAnneeUniversitaireEtNomUniversite(LocalDate anneeUniversite, String nomUniversite) {
+        return reservationRepository.retourneListeReservationParAnneeUniversitaireEtNomUniversite(anneeUniversite,nomUniversite);
+    }
+
 
 }
