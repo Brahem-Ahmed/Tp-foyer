@@ -4,6 +4,7 @@ import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Chambre;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.TypeChambre;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IChambreService {
@@ -19,4 +20,6 @@ public interface IChambreService {
     List<Chambre> getChambresParBlocEtTypeJPQL (long idBloc, TypeChambre typeC) ;
     List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite,TypeChambre type);
 
+    void afficherChambresNonReserveesPendantCetteAnnees();
+    void retournerLesChambresNonReserveesParAnnee();
 }
