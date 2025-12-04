@@ -65,4 +65,6 @@ public class ChambreController {
     public List<Chambre> getChambresNonReserveParNomUniversiteEtTypeChambre(@PathVariable String nomUniversite, @PathVariable TypeChambre type) {
         return chambreService.getChambresNonReserveParNomUniversiteEtTypeChambre(nomUniversite, type);
     }
+    
+
 }

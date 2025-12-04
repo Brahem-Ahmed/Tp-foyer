@@ -7,6 +7,7 @@ import tn.esprit.tp_foyer_ahmed_brahem.entites.Bloc;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.Chambre;
 import tn.esprit.tp_foyer_ahmed_brahem.entites.TypeChambre;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -24,5 +25,15 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long> {
             "AND (SELECT COUNT(r) FROM c.reservations r) = 0"
     )
     List<Chambre> retournerLesChambresNonReserveesParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre typeChambre);
+
+    @Query(value = "SELECT c FROM Chambre c, Reservation r " +
+            "WHERE (SELECT COUNT(r) FROM c.reservations r) = 0 " +
+            "AND r.anneUniversitaire =:date ")
+    List<Chambre> retournerLesChambresNonReserveesParAnnee(LocalDate date);
+
+    @Query(value = "SELECT c FROM Chambre c , Reservation r" +
+            " WHERE NOT EXISTS (SELECT r FROM c.reservations r ) " +
+            "AND r.anneUniversitaire =:date ")
+    List<Chambre> retourLesChambresNonReserveesParAnnee(LocalDate date);
 
 }

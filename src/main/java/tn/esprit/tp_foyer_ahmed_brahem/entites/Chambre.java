@@ -20,9 +20,11 @@ public class Chambre {
     private  long numeroChambre;
     @Enumerated(EnumType.STRING)
     private  TypeChambre typeChambre;
+    @ToString.Exclude
     @ManyToOne
     private Bloc bloc;
     @JsonIgnore
+    @ToString.Exclude
     @OneToMany
     private List<Reservation> reservations;
 
